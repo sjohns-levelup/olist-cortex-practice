@@ -1,1 +1,12 @@
+-- Database and schema
+CREATE DATABASE IF NOT EXISTS OLIST_DB;
+CREATE SCHEMA IF NOT EXISTS OLIST_DB.RAW;
 
+-- Small warehouse for loading (you may already have one from training)
+CREATE WAREHOUSE IF NOT EXISTS OLIST_WH
+    WAREHOUSE_SIZE = 'X-SMALL'
+    AUTO_SUSPEND = 60
+    AUTO_RESUME = TRUE;
+
+-- Internal stage for CSV uploads
+CREATE STAGE IF NOT EXISTS OLIST_DB.RAW.OLIST_STAGE;
